@@ -25,7 +25,6 @@
             ],
             "styles": [
               "src/styles.css"
-           
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
@@ -120,6 +119,10 @@
               "devServerTarget": "web:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

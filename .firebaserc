@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "schweb-ea667": {
+      "hosting": {
+        "web": [
+          "schweb-ea667"
+        ]
+      }
+    }
+  }
+}

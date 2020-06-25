@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { ClassesComponent } from './classes/classes.component';
 import { LoginComponent } from './login/login.component';
 import { AfterLoginComponent } from './after-login/after-login.component';
+import { StudentsComponent } from './students/students.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -17,11 +23,17 @@ import { AfterLoginComponent } from './after-login/after-login.component';
     ClassesComponent,
     HomeComponent,
     LoginComponent,
-    AfterLoginComponent
+    AfterLoginComponent,
+    StudentsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
   ],

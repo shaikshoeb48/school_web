@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClassesService } from '../services/classes.service';
 
 
 @Component({
@@ -9,30 +10,53 @@ import { Router } from '@angular/router';
 })
 export class ClassesComponent implements OnInit {
 
- mobileNumber;
- value;
- data : {
-   8074318421
- };
+  mobileNumber;
+  className;
+  value;
+  data: {
+    8074318421
+  };
+  message = '';
 
-  constructor(private router : Router) { }
+  numbertext = '';
+
+  constructor(private router: Router, private classesService: ClassesService) { }
 
   ngOnInit(): void {
   }
 
   focusoutHandler(refVar) {
     console.log(refVar.value);
-    this.value = refVar.value;
-}
+    this.mobileNumber = refVar.value;
+  }
 
-  rotate(){
-    console.log(this.value)
-    if(this.value == 8074318421 || this.value == 9133425894){
-      console.log("yesssss");
-      this.router.navigate(['afterLogin'])
-    } else{
-      window.alert(" Invalid Number")
-    }
+  async rotate() {
+    console.log(this.mobileNumber);
+
+    await this.classesService.getStudentDetails(this.mobileNumber, this.className).subscribe((result) => {
+      if (result == null) {
+        alert('No record found');
+
+      } else {
+        this.message = 'Success';
+        this.numbertext = '';
+        alert('Success');
+        this.router.navigate(['afterLogin']);
+      }
+    });
+
+
+    // if (this.value == 8074318421 || this.value == 9133425894) {
+    //   console.log("yesssss");
+    //   this.router.navigate(['afterLogin'])
+    // } else {
+    //   window.alert(" Invalid Number")
+    // }
+  }
+
+  storeButtonText($event) {
+    console.log($event.target.textContent);
+    this.className = $event.target.textContent;
   }
 
 }

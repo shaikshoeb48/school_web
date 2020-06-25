@@ -1,0 +1,33 @@
+<!-- <div class="row p-5">
+<div class="col-md-3"></div>
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+           <div class="card-body">
+              <h5 class="card-title">School</h5>
+              <p class="card-text">Manage all classes.</p>
+              <a href="#" routerLink="/classes" class="btn btn-primary">Visit</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+               <h5 class="card-title">Management</h5>
+               <p class="card-text">Manage students.</p>
+               <a href="#" routerLink="/students" class="btn btn-primary">Visit</a>
+             </div>
+           </div>
+ 
+    </div>
+</div> -->
+
+<div class="row p-5">
+    <div class="col-md-9"></div>
+    <div class="col-md-2" >
+        <label style="border-bottom: 1px solid black;">Notifications</label>
+        <ul class="list-group" *ngFor="let notification of notifications">
+            <li class="list-group-item"><span>{{notification.payload.val().notification}} </span><a href="javascript:void(0)" (click)="deleteNotification(notification)">Delete</a></li>
+        </ul>
+    </div>
+
+</div>
