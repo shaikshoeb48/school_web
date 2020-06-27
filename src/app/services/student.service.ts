@@ -18,7 +18,7 @@ export class StudentService {
 
 
     // const shaHash = sha512.sha512_256(value.email);
-    const userRef = this.db.object('classes/' + classNumber + '/' + value.studentMobile);
+    const userRef = this.db.object('classes/' + classNumber + '/students/' + value.studentMobile);
 
     return userRef.update(value).then((result) => {
       console.log('saved');
@@ -31,7 +31,7 @@ export class StudentService {
 
   getStudentData(className) {
     console.log(className);
-    return this.db.list('classes/' + className).valueChanges();
+    return this.db.list('classes/' + className+'/students').valueChanges();
   }
 
 
@@ -43,7 +43,7 @@ export class StudentService {
 
     //this.db.object('classes/' + classNumber + '/' + studentMobile).remove();
 
-    const itemRef = this.db.object('classes/' + classNumber + '/' + studentMobile);
+    const itemRef = this.db.object('classes/' + classNumber + '/students/' + studentMobile);
     itemRef.remove();
 
   }

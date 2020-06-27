@@ -4,12 +4,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 @Injectable({
   providedIn: 'root'
 })
-export class ClassesService {
+export class StudentDashboardService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getStudentDetails(mobileNumber, className) {
-    return this.db.object('classes/' + className + '/students/' + mobileNumber).valueChanges();
-  }
-
+  
 }

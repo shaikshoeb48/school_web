@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
+import { TeachersDashboardComponent } from './teachers-dashboard/teachers-dashboard.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 
 
 
@@ -25,7 +27,9 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     AfterLoginComponent,
     StudentsComponent,
-    AdminComponent
+    AdminComponent,
+    TeachersDashboardComponent,
+    StudentDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { AdminComponent } from './admin/admin.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
   ],

@@ -41,7 +41,8 @@ export class ClassesComponent implements OnInit {
         this.message = 'Success';
         this.numbertext = '';
         alert('Success');
-        this.router.navigate(['afterLogin']);
+        // this.router.navigate(['afterLogin']);
+        this.router.navigate(['student-dashboard']);
       }
     });
 

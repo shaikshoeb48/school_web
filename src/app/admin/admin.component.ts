@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { asLiteral } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-admin',
@@ -6,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  teacherCode = '';
+  adminCode = '';
+  codeTeacher = '444444';
+  codeAdmin = '444444';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  checkAdminCode() {
+    if (this.adminCode == this.codeAdmin) {
+      this.router.navigate(['/students']);
+    } else {
+      alert('Invalid Code');
+    }
+  }
+  checkTeacherCode() {
+    if (this.teacherCode == this.codeTeacher) {
+      this.router.navigate(['/teachers-dashboard']);
+    } else {
+      alert('Invalid Code');
+    }
+  }
 }
