@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   {path: 'afterLogin' , component: AfterLoginComponent},
   {path: 'teachers-dashboard' , component: TeachersDashboardComponent},
-  {path: 'student-dashboard' , component: StudentDashboardComponent}
+  {path: 'student-dashboard' , component: StudentDashboardComponent},
+  { path: 'student-dashboard/:studentMobile/:className', component: StudentDashboardComponent }
 
   
 ]

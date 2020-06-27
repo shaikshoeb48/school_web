@@ -1,1 +1,93 @@
-<p>student-dashboard works!</p>
+<!-- <p>student-dashboard works!</p> -->
+<div class="row p-5">
+    <div class="col">
+
+        <div class="row p-5">
+            <div class="col">
+                <div class="row">
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-4">
+                        <div><label style="background-color: orange;">Welcome {{studentName}}</label></div>
+                    </div>
+                    <div class="col-md-3">
+
+                        <div><label style="background-color:orangered;">{{className}}</label></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row p-2">
+
+            <div class="col-md-3"></div>
+            <div class="col-md-4">
+                <label for="classes">Select Subject</label>
+                <select id="classes" class="form-control" (change)="onSelectSubjectChange($event)">
+                    <option value="#">Select Subject</option>
+                    <option value="Telugu">Telugu</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Science">Science</option>
+                    <option value="Maths">Maths</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row ">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+
+                <table class="table  table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Note Title</th>
+                            <th scope="col">Note File</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let note of notes; let i=index;">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{note.payload.val().noteTitle}}</td>
+                            <td><a href="{{note.fileLink}}" target="_blank" rel="noopener noreferrer">Download</a></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <!-- <tr>
+                           <td></td>
+                        </tr> -->
+                    </tfoot>
+                </table>
+
+            </div>
+            <div class="col-md-4">
+                <table class="table  table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Resource</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let resource of resources; let i=index;">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{resource.payload.val().resource}}</td>
+
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <!-- <tr>
+                            <td></td>
+                            
+                            
+                        </tr> -->
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

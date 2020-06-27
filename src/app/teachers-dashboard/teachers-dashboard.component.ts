@@ -111,12 +111,12 @@ export class TeachersDashboardComponent implements OnInit {
     if (this.isNotesEdit) {
       this.teacherDashboardService.editNotes(this.notesForm.value, this.class, this.subject, this.notesFile,
         this.notesKey, this.noteFileName).then((res) => {
-        alert('Notes Edited Successfully');
-        this.isNotesEdit = false;
-        this.notesForm.reset();
-        this.notesSubmitDisabled = false;
-        this.previousFile = false;
-      });
+          alert('Notes Edited Successfully');
+          this.isNotesEdit = false;
+          this.notesForm.reset();
+          this.notesSubmitDisabled = false;
+          this.previousFile = false;
+        });
       return;
     }
 
