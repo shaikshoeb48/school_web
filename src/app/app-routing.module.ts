@@ -7,6 +7,7 @@ import { StudentsComponent } from './students/students.component';
 import { AdminComponent } from './admin/admin.component';
 import { TeachersDashboardComponent } from './teachers-dashboard/teachers-dashboard.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { ElearningComponent } from './elearning/elearning.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,8 @@ const routes: Routes = [
   {path: 'afterLogin' , component: AfterLoginComponent},
   {path: 'teachers-dashboard' , component: TeachersDashboardComponent},
   {path: 'student-dashboard' , component: StudentDashboardComponent},
+  {path: 'e-learning' , component: ElearningComponent},
+  {path: 'e-learning/:className' , component: ElearningComponent},
   { path: 'student-dashboard/:studentMobile/:className', component: StudentDashboardComponent }
 
   

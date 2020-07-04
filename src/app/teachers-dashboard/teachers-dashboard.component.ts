@@ -27,6 +27,7 @@ export class TeachersDashboardComponent implements OnInit {
   notesKey = '';
   notesSubmitDisabled = false;
   previousFile = false;
+  resourceTitle= '';
   constructor(private formBuilder: FormBuilder, private teacherDashboardService: TeacherDashboardService) { }
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class TeachersDashboardComponent implements OnInit {
     });
     this.resourcesForm = this.formBuilder.group({
       resourceName: ['', Validators.required],
+      resourceTitle: ['',Validators.required]
     });
 
 
@@ -146,7 +148,7 @@ export class TeachersDashboardComponent implements OnInit {
     }
 
     if (this.isResourceEdit) {
-      this.teacherDashboardService.editResource(this.class, this.subject, this.resourceName, this.resourceKey).then((res) => {
+      this.teacherDashboardService.editResource(this.class, this.subject, this.resourcesForm.value, this.resourceKey).then((res) => {
         alert('Resource Edited Successfully');
         this.isResourceEdit = false;
         this.resourcesForm.reset();
@@ -155,7 +157,7 @@ export class TeachersDashboardComponent implements OnInit {
       return;
     }
 
-    this.teacherDashboardService.addResource(this.class, this.subject, this.resourceName).then((result) => {
+    this.teacherDashboardService.addResource(this.class, this.subject, this.resourcesForm.value).then((result) => {
       alert('Resource Added Successfully');
       this.resourcesForm.reset();
     });
@@ -164,7 +166,8 @@ export class TeachersDashboardComponent implements OnInit {
 
   setResourceEditParams(resource) {
     this.isResourceEdit = true;
-    this.resourceName = resource.payload.val().resource;
+    this.resourceName = resource.payload.val().resourceName;
+    this.resourceTitle = resource.payload.val().resourceTitle;
     this.resourceKey = resource.key;
 
 

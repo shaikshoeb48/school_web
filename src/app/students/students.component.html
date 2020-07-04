@@ -44,7 +44,7 @@
                     <!-- <option *ngFor="let class of classes" value="{{class.key}}">{{class.key}}</option> -->
                 </select>
             </div>
-
+            
 
         </div>
 
@@ -89,7 +89,13 @@
                     </tfoot>
                 </table>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2" >
+                <label style="border-bottom: 1px solid black;">Notifications</label>
+                <ul class="list-group" *ngFor="let notification of notifications">
+                    <li class="list-group-item"><span>{{notification.payload.val().notification}} </span><a href="javascript:void(0)" (click)="deleteNotification(notification)">Remove</a></li>
+                </ul>
+            </div>
         </div>
 
     </div>

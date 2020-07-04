@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../services/student.service';
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { async } from '@angular/core/testing';
+import { NotificationService } from '../services/notification.service';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -16,7 +17,8 @@ export class StudentsComponent implements OnInit {
   studentMobile: string;
   isEdit = false;
   notificationForm: FormGroup;
-  constructor(private studentService: StudentService, private formBuilder: FormBuilder) { }
+  notifications: any;
+  constructor(private studentService: StudentService, private formBuilder: FormBuilder, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
 
@@ -45,7 +47,10 @@ export class StudentsComponent implements OnInit {
 
     // });
 
-
+    this.notificationService.getNotifications().subscribe((result) => {
+      console.log(result);
+      this.notifications = result;
+    });
 
   }
 
@@ -103,6 +108,11 @@ export class StudentsComponent implements OnInit {
     }).catch((err) => {
       alert('Some error occured');
     });
+
+  }
+  deleteNotification(notification) {
+    this.notificationService.deleteNotification(notification);
+
 
   }
 }

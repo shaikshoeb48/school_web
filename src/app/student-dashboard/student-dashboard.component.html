@@ -1,4 +1,13 @@
 <!-- <p>student-dashboard works!</p> -->
+<div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg navbar-light  ">
+        <button class="navbar-brand btn btn-success ml-auto color-white">Presentation</button>
+        <button class="navbar-brand btn btn-success color-white" routerLink='/e-learning/{{className}}'
+            routerLinkActive="active">E-Learning</button>
+    </nav>
+
+</div>
 <div class="row p-5">
     <div class="col">
 
@@ -52,7 +61,10 @@
                         <tr *ngFor="let note of notes; let i=index;">
                             <th scope="row">{{i+1}}</th>
                             <td>{{note.payload.val().noteTitle}}</td>
-                            <td><a href="{{note.fileLink}}" target="_blank" rel="noopener noreferrer">Download</a></td>
+                            <!-- <td><a href="{{note.fileLink}}" target="_blank" rel="noopener noreferrer">Download</a></td> -->
+                            <td><a href="javascript:void(0)"
+                                    (click)="downloadFile(note.fileLink,note.payload.val().noteTitle)">Download</a></td>
+                            <!-- <a [href]="note.fileLink" download>Download</a> -->
                         </tr>
                     </tbody>
                     <tfoot>
@@ -68,14 +80,18 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Resource</th>
+                            <th scope="col">Resource Title</th>
+                            <th scope="col">Visit</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let resource of resources; let i=index;">
                             <th scope="row">{{i+1}}</th>
-                            <td>{{resource.payload.val().resource}}</td>
-
+                            <td>{{resource.payload.val().resourceTitle}}</td>
+                            <td><a href="javascript:void(0)" *ngIf="linkIsYoutube(resource.payload.val().resourceName)"
+                                    (click)="setResourceName(resource.payload.val().resourceName)">
+                                    Start Video</a></td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -88,6 +104,35 @@
                 </table>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <iframe [src]='link | safe' frameborder="0" width="450" height="400" *ngIf="showLink"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="col"></div>
 
+        </div>
+    </div>
+    <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="resourceModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resourceModalLabel">Add Resource</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <iframe [src]='link | safe' frameborder="0" width="450" height="400" allowfullscreen></iframe>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

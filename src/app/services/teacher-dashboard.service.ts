@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable, Subject } from 'rxjs';
@@ -14,12 +14,17 @@ export class TeacherDashboardService {
   private eventCallback = new Subject<string>();
   eventCallback$ = this.eventCallback.asObservable();
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+  // constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+  constructor(@Inject('firebaseProject1') private db: AngularFireDatabase,
+    @Inject('firebaseStorageProject1') private storage: AngularFireStorage) { }
+
+
+
   addResource(className, subject, resource) {
     const date = Date.now();
     console.log(date);
     const itemRef = this.db.object('classes' + '/' + className + '/' + subject + '/resources/' + date);
-    return itemRef.update({ resource: resource });
+    return itemRef.update(resource);
   }
 
   getResource(className, subjectName): Observable<any> {
@@ -27,9 +32,9 @@ export class TeacherDashboardService {
     return this.db.list('classes/' + className + '/' + subjectName + '/resources').snapshotChanges();
 
   }
-  editResource(className, subject, resourceName, key) {
+  editResource(className, subject, resource, key) {
     const itemRef = this.db.object('classes' + '/' + className + '/' + subject + '/resources/' + key);
-    return itemRef.update({ resource: resourceName });
+    return itemRef.update(resource);
   }
   deleteResource(className, subject, key) {
     return this.db.object('classes' + '/' + className + '/' + subject + '/resources/' + key).remove();
@@ -110,12 +115,12 @@ export class TeacherDashboardService {
     await this.storage.storage.ref(oldFileName).delete();
   }
 
-  deleteNotesAndFile(className,subject,note){
-    return this.db.object('classes' + '/' + className + '/' + subject + '/notes/' + note.key).remove().then((res)=>{
-      console.log('filename',note.payload.val().fileName);
+  deleteNotesAndFile(className, subject, note) {
+    return this.db.object('classes' + '/' + className + '/' + subject + '/notes/' + note.key).remove().then((res) => {
+      console.log('filename', note.payload.val().fileName);
       const filename = note.payload.val().fileName;
       this.deleteUploadedFile(filename);
     });
-  
+
   }
 }

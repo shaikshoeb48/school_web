@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
@@ -6,8 +6,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class NotificationService {
 
-  constructor(private db: AngularFireDatabase) { }
+//  constructor(private db: AngularFireDatabase) { }
 
+  constructor(@Inject('firebaseProject1') private db: AngularFireDatabase) { }
 
 
   deleteNotification(notification){

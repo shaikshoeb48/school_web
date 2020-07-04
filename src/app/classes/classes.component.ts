@@ -43,8 +43,9 @@ export class ClassesComponent implements OnInit {
         alert('Success');
         // this.router.navigate(['afterLogin']);
         // this.router.navigate(['student-dashboard',this.mobileNumber,this.className]);
-       // this.router.navigate(['game', { mobileNumber: this.mobileNumber, className: this.className }]);
-        this.router.navigate(['student-dashboard', { mobileNumber: this.mobileNumber, className: this.className}]);
+        // this.router.navigate(['game', { mobileNumber: this.mobileNumber, className: this.className }]);
+        console.log(this.mobileNumber, this.className);
+        this.router.navigate(['student-dashboard', { mobileNumber: this.mobileNumber, className: this.className }]);
       }
     });
 

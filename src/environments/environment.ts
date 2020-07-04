@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebaseConfig : {
+  firebaseProject1: {
     apiKey: "AIzaSyAC44a1LlKWic9IRvUrEiqpxes_a0ZdXYM",
     authDomain: "schweb-ea667.firebaseapp.com",
     databaseURL: "https://schweb-ea667.firebaseio.com",
@@ -13,6 +13,16 @@ export const environment = {
     messagingSenderId: "906994596969",
     appId: "1:906994596969:web:af8835843a12b4373b36f8",
     measurementId: "G-8P02ME9QJX"
+  },
+  firebaseProject2: {
+    apiKey: "AIzaSyDvIms1spKJtVWPSJRWzC4OWnQ9uOvGngA",
+    authDomain: "sch-admin.firebaseapp.com",
+    databaseURL: "https://sch-admin.firebaseio.com",
+    projectId: "sch-admin",
+    storageBucket: "sch-admin.appspot.com",
+    messagingSenderId: "1057537825749",
+    appId: "1:1057537825749:web:a3e087b6849b6dc655bb5c",
+    measurementId: "G-WGNDQR7SZQ"
   }
 };
 

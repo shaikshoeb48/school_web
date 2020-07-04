@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
@@ -6,9 +6,12 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class ClassesService {
 
-  constructor(private db: AngularFireDatabase) { }
+  // constructor(private db: AngularFireDatabase) { }
+  constructor(@Inject('firebaseProject1') private db: AngularFireDatabase) { }
+  
 
   getStudentDetails(mobileNumber, className) {
+    console.log('get student deetails');
     return this.db.object('classes/' + className + '/students/' + mobileNumber).valueChanges();
   }
 

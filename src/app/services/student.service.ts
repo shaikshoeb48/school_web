@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
   classes: Observable<any[]>;
-  constructor(private db: AngularFireDatabase) { }
+  // constructor(private db: AngularFireDatabase) { }
+  constructor(@Inject('firebaseProject1') private db: AngularFireDatabase) { }
+
 
   getClasses() {
     return this.db.list('classes', ref => ref.orderByValue()).snapshotChanges();

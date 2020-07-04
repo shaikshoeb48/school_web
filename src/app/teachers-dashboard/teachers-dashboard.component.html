@@ -1,4 +1,3 @@
-
 <div class="row p-5">
     <div class="col">
         <!-- <div class="row p-5">
@@ -22,7 +21,7 @@
                     <option value="class-8">class-8</option>
                     <option value="class-9">class-9</option>
                     <option value="class-10">class-10</option>
-                  </select>
+                </select>
             </div>
             <div class="col-md-4">
                 <label for="classes">Select Subject</label>
@@ -33,7 +32,7 @@
                     <option value="Hindi">Hindi</option>
                     <option value="Science">Science</option>
                     <option value="Maths">Maths</option>
-                  </select>
+                </select>
             </div>
 
         </div>
@@ -62,7 +61,7 @@
                             <td><button class="btn btn-primary" (click)="confirmDelete(note)">Delete</button>
                             </td>
                         </tr>
-                       </tbody>
+                    </tbody>
                     <tfoot>
                         <tr>
                             <td></td>
@@ -76,14 +75,15 @@
                         </tr>
                     </tfoot>
                 </table>
-               
+
             </div>
             <div class="col-md-4">
                 <table class="table  table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Resource</th>
+                            <th scope="col">Resource Title</th>
+                            <th scope="col">Resource Link</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
@@ -91,15 +91,18 @@
                     <tbody>
                         <tr *ngFor="let resource of resources; let i=index;">
                             <th scope="row">{{i+1}}</th>
-                            <td>{{resource.payload.val().resource}}</td>
-                            <td><button class="btn btn-primary" (click)="setResourceEditParams(resource)" data-toggle="modal"
-                                    data-target="#resourceModal">Edit</button></td>
-                            <td><button class="btn btn-primary" (click)="confirmResourceDelete(resource.key)">Delete</button>
+                            <td>{{resource.payload.val().resourceTitle}}</td>
+                            <td>{{resource.payload.val().resourceName}}</td>
+                            <td><button class="btn btn-primary" (click)="setResourceEditParams(resource)"
+                                    data-toggle="modal" data-target="#resourceModal">Edit</button></td>
+                            <td><button class="btn btn-primary"
+                                    (click)="confirmResourceDelete(resource.key)">Delete</button>
                             </td>
                         </tr>
-                       </tbody>
+                    </tbody>
                     <tfoot>
                         <tr>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -126,52 +129,55 @@
                 </div>
                 <div class="modal-body">
                     <form [formGroup]="notesForm" (ngSubmit)="onFormSubmit()">
-                        
+
                         <label for="noteTitle">Enter Notes Title</label>
                         <input formControlName="noteTitle" [(ngModel)]="noteTitle" class="form-control" type="text"
                             name="noteTitle" id="noteTitle">
 
-                            <label *ngIf="previousFile">PreviousFile: {{noteFileName}}</label>
+                        <label *ngIf="previousFile">PreviousFile: {{noteFileName}}</label>
                         <label for="noteFile">Add File</label>
-                        <input formControlName="noteFile" [(ngModel)]="noteFile" (change)="fileChange($event)" class="form-control"
-                            type="file" accept=".doc,.docx,.pdf" name="noteFile" id="noteFile">
+                        <input formControlName="noteFile" [(ngModel)]="noteFile" (change)="fileChange($event)"
+                            class="form-control" type="file" accept=".doc,.docx,.pdf" name="noteFile" id="noteFile">
 
-                        <button class="form-control btn btn-primary mt-2" [disabled]="notesForm.invalid || notesSubmitDisabled"
+                        <button class="form-control btn btn-primary mt-2"
+                            [disabled]="notesForm.invalid || notesSubmitDisabled" type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="resourceModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resourceModalLabel">Add Resource</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="resourcesForm" (ngSubmit)="onResourceFormSubmit()">
+                        <label for="resourceTitle">Enter Resource Title</label>
+                        <input formControlName="resourceTitle" [(ngModel)]="resourceTitle" class="form-control"
+                            type="url" name="resourceTitle" id="resourceTitle">
+
+                        <label for="resourceName"> Resource Link</label>
+                        <input formControlName="resourceName" [(ngModel)]="resourceName" class="form-control" type="url"
+                            name="resourceName" id="resourceName">
+
+
+                        <button class="form-control btn btn-primary mt-2" [disabled]="resourcesForm.invalid"
                             type="submit">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                   </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="resourceModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="resourceModalLabel">Add Resource</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="resourcesForm" (ngSubmit)="onResourceFormSubmit()">
-                    
-                    <label for="resourceName">Enter Resource Link</label>
-                    <input formControlName="resourceName" [(ngModel)]="resourceName" class="form-control" type="text"
-                        name="resourceName" id="resourceName">
-
-                    
-                    <button class="form-control btn btn-primary mt-2" [disabled]="resourcesForm.invalid"
-                        type="submit">Submit</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               </div>
-        </div>
-    </div>
-</div>
 </div>

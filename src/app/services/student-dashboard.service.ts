@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class StudentDashboardService {
 
-  constructor(private db: AngularFireDatabase) { }
+  // constructor(private db: AngularFireDatabase) { }
+  constructor(@Inject('firebaseProject1') private db: AngularFireDatabase) { }
+
 
   getStudentDetails(className, mobileNumber) {
     return this.db.list('classes/' + className + '/students' + '/' + mobileNumber).snapshotChanges();
