@@ -25,13 +25,17 @@
             </div>
             <div class="col-md-4">
                 <label for="classes">Select Subject</label>
-                <select id="classes" class="form-control" (change)="onSelectSubjectChange($event)">
+                <!-- <select id="classes" class="form-control" (change)="onSelectSubjectChange($event)">
                     <option value="#">Select Subject</option>
                     <option value="Telugu">Telugu</option>
                     <option value="English">English</option>
                     <option value="Hindi">Hindi</option>
                     <option value="Science">Science</option>
                     <option value="Maths">Maths</option>
+                </select> -->
+                <select id="classes" class="form-control" (change)="onSelectSubjectChange($event)">
+                    <option value="#">Select Subject</option>
+                    <option value="{{subject.subjectValue}}" *ngFor="let subject of subjects">{{subject.subjectName}}</option>
                 </select>
             </div>
 

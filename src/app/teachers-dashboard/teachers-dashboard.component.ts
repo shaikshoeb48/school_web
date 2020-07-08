@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { StudentDashboardService } from '../services/student-dashboard.service';
 import { TeacherDashboardService } from '../services/teacher-dashboard.service';
+import { class6Subjects, class7Subjects, class8Subjects, class9Subjects, class10Subjects } from '../subject';
 
 @Component({
   selector: 'app-teachers-dashboard',
@@ -28,6 +29,7 @@ export class TeachersDashboardComponent implements OnInit {
   notesSubmitDisabled = false;
   previousFile = false;
   resourceTitle= '';
+  subjects = [];
   constructor(private formBuilder: FormBuilder, private teacherDashboardService: TeacherDashboardService) { }
 
   ngOnInit(): void {
@@ -44,6 +46,21 @@ export class TeachersDashboardComponent implements OnInit {
   }
   onSelectClassChange($event) {
     this.class = $event.target.value;
+    if (this.class == 'class-6') {
+      this.subjects = class6Subjects.subjects;
+    }
+    if (this.class == 'class-7') {
+      this.subjects = class7Subjects.subjects;
+    }
+    if (this.class == 'class-8') {
+      this.subjects = class8Subjects.subjects;
+    }
+    if (this.class == 'class-9') {
+      this.subjects = class9Subjects.subjects;
+    }
+    if (this.class == 'class-10') {
+      this.subjects = class10Subjects.subjects;
+    }
     this.getResources();
     this.getNotes();
   }

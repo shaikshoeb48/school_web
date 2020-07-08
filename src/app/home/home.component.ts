@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { NotificationService } from '../services/notification.service';
@@ -12,7 +12,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class HomeComponent implements OnInit {
   list = [];
   notifications: any;
-  constructor(private route: Router, private notificationService: NotificationService,
+  constructor(private elementRef:ElementRef,private route: Router, private notificationService: NotificationService,
     @Inject('firebaseProject2') private db: AngularFireDatabase) { }
   //  constructor() { }
 
@@ -39,6 +39,12 @@ export class HomeComponent implements OnInit {
   }
 
 
-
+  ngAfterViewInit() {
+    let s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "https://sdk.canva.com/v1/embed.js";
+    s.crossOrigin="anonymous";
+    this.elementRef.nativeElement.appendChild(s);
+  }
 
 }

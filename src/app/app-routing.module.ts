@@ -8,6 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { TeachersDashboardComponent } from './teachers-dashboard/teachers-dashboard.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { ElearningComponent } from './elearning/elearning.component';
+import { PresentationComponent } from './presentation/presentation.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'teachers-dashboard' , component: TeachersDashboardComponent},
   {path: 'student-dashboard' , component: StudentDashboardComponent},
   {path: 'e-learning' , component: ElearningComponent},
+  {path: 'presentation' , component: PresentationComponent},
   {path: 'e-learning/:className' , component: ElearningComponent},
   { path: 'student-dashboard/:studentMobile/:className', component: StudentDashboardComponent }
 

@@ -19,6 +19,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { ElearningComponent } from './elearning/elearning.component';
 import { SafePipe } from './SafePipe';
+import { PresentationComponent } from './presentation/presentation.component';
 
 
 
@@ -35,7 +36,8 @@ import { SafePipe } from './SafePipe';
     TeachersDashboardComponent,
     StudentDashboardComponent,
     ElearningComponent,
-    SafePipe
+    SafePipe,
+    PresentationComponent
   ],
   imports: [
     BrowserModule,

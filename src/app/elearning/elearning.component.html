@@ -1,11 +1,32 @@
 <!-- <p>elearning works!</p> -->
 <div class="row p-5">
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col">   
+                 <label for="subject">Select Subject</label>
+                <select class="form-control" name="subject"  id="subject" (change)="onSelectSubjectChange($event)">
+                   <option value="">Select Subject</option>
+                    <option *ngFor="let subject of subjects" value="{{subject.subjectValue}}">{{subject.subjectName}}</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="chapter">Select Chapter</label>
+                <select class="form-control" name="chapter"  id="chapter" (change)="onSelectChapterChange($event)">
+                   <option value="">Select Chapter</option>
+                    <option *ngFor="let chapter of chapters" value="{{chapter.chapterTitle}}">{{chapter.chapterTitle}}</option>
+                </select>
+            </div>
+        </div>
+
+
+
+    </div>
     <div class="col">
         <div *ngFor="let item of list">
             <!-- {{item['link']}} -->
             <!-- item: {{item}} -->
-            <iframe [src]='item | safe' frameborder="0" width="700" height="400" allowfullscreen></iframe>
+            <label><h2>Title:{{item['title']}}</h2></label>
+            <iframe [src]='item.link | safe' frameborder="0" width="700" height="400" allowfullscreen></iframe>
         </div>
     </div>
     <div class="col"> </div>
