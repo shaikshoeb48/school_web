@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'student-dashboard' , component: StudentDashboardComponent},
   {path: 'e-learning' , component: ElearningComponent},
   {path: 'presentation' , component: PresentationComponent},
+  {path: 'presentation/:className' , component: PresentationComponent},
   {path: 'e-learning/:className' , component: ElearningComponent},
   { path: 'student-dashboard/:studentMobile/:className', component: StudentDashboardComponent }
 

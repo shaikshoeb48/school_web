@@ -1,17 +1,70 @@
 
-<div class="row" >
+
+
+
+
+
+<div class="row p-5">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- <label for="classes">Select Class</label>
+            <select id="classes" class="form-control" (change)="onSelectClassChange($event)">
+                <option value="#">Select Class</option>
+                <option value="class-6">class-6</option>
+                <option value="class-7">class-7</option>
+                <option value="class-8">class-8</option>
+                <option value="class-9">class-9</option>
+                <option value="class-10">class-10</option>
+            </select> -->
+        </div>
+
+        <div class="col-md-4">
+            <label for="subject">Select Subject</label>
+            <select class="form-control" name="subject" id="subject" (change)="onSelectSubjectChange($event)">
+                <option value="">Select Subject</option>
+                <option *ngFor="let subject of subjects" value="{{subject.subjectValue}}">{{subject.subjectName}}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="chapter">Select Chapter</label>
+            <select class="form-control" name="chapter" id="chapter" (change)="onSelectChapterChange($event)">
+                <option value="">Select Chapter</option>
+                <option *ngFor="let chapter of chapters" value="{{chapter.chapterTitle}}">{{chapter.chapterTitle}}
+                </option>
+            </select>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <div
-        class="canva-embed"
-        data-design-id="DAEBY-uSnwU"
-        data-height-ratio="0.5625"
-        style="padding:56.2500% 5px 5px 5px;background:rgba(0,0,0,0.03);border-radius:8px;"
-       ></div>
-       <!-- <script async src="https://sdk.canva.com/v1/embed.js"></script> -->
-       <a href="https://www.canva.com/design/DAEBY-uSnwU/view?utm_content=DAEBY-uSnwU&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">Design</a> by Sudarshan Chavan
-    
+        <div *ngFor="let presentation of presentations">
+            <!-- <div class="canva-embed" data-design-id="DAEBZdzt98M" data-height-ratio="0.5625" -->
+            <div class="canva-embed" [attr.data-design-id]="presentation.id" data-height-ratio="0.5625"
+                style="padding:56.2500% 5px 5px 5px;background:rgba(0,0,0,0.03);border-radius:8px;"></div>
+
+        </div>
+        <!-- <script async src="https://sdk.canva.com/v1/embed.js"></script> -->
+        <!-- <a href="https://www.canva.com/design/DAEBY-uSnwU/view?utm_content=DAEBY-uSnwU&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">Design</a> by Sudarshan Chavan -->
+
     </div>
-   
-   <div class="col-md-2"></div>
+
+    <div class="col-md-2"></div>
 </div>
