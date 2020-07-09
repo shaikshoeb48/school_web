@@ -1,4 +1,4 @@
-.nav1{
+/* .nav1{
     border:1px solid #ccc;
     border-width:1px 0;
     list-style:none;
@@ -12,4 +12,27 @@
 .nav1 a{
     display:inline-block;
     padding:10px;
+} */
+
+.bg-1 {
+    background: url('https://images.pexels.com/photos/3815765/pexels-photo-3815765.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-1 {
+    font-weight: bold;
+    font-family: louis_george_caferegular;
+    word-spacing: 4px;
+    color: rgb(122, 209, 141);
+}
+
+.about-bg {
+    background: url('https://images.pexels.com/photos/3787308/pexels-photo-3787308.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.example-full-width {
+    width: 100%;
 }

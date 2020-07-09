@@ -20,8 +20,9 @@ import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestor
 import { ElearningComponent } from './elearning/elearning.component';
 import { SafePipe } from './SafePipe';
 import { PresentationComponent } from './presentation/presentation.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -49,6 +50,10 @@ import { PresentationComponent } from './presentation/presentation.component';
     AngularFireStorageModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+
   ],
   providers: [
     {

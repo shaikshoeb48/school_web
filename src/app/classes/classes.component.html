@@ -1,25 +1,10 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row p-5">
         <div class="col">
             <h2 style="text-align:center;color: rgb(21, 21, 184);"> Select Class</h2>
         </div>
     </div>
     <div class="row p-5">
-        <!-- <div class="col-md-2">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-1</button>
-        </div>
-        <div class="col-md-2">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-2</button>
-        </div>
-        <div class="col-md-2">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-3</button>
-        </div>
-        <div class="col-md-2">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-4</button>
-        </div>
-        <div class="col-md-2">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-5</button>
-        </div> -->
         <div class="col-md-2">
             <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-6</button>
         </div>
@@ -36,34 +21,73 @@
             <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-10</button>
         </div>
     </div>
-    <!-- <div class="row">
-        <div class="col-md-3">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-7</button>
+</div> -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row py-5 p-3">
+                <div class="col-md-3 mx-auto py-2 text-center text-primary">
+                    <h1>SELECT CLASS </h1>
+                </div>
+            </div>
+            <div class="row mx-auto">
+                <div class="col-md-12 mx-auto">
+                    <div class="row text-center" style="border: none;">
+                        <div class="col-md-2   mx-auto">
+                            <div class="mx-auto card shadow p-3 mb-5 bg-white rounded p-2 px-2 py-2">
+                                <div class="card-body">
+                                    <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-6</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 mx-auto">
+                            <div class="mx-auto card shadow p-3 mb-5 bg-white rounded p-2 px-2 py-2">
+                                <div class="card-body">
+                                    <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-7</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 mx-auto">
+                            <div class="mx-auto card shadow p-3 mb-5 bg-white rounded p-2 px-2 py-2">
+                                <div class="card-body">
+                                    <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-8</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mx-auto card shadow p-3 mb-5 bg-white rounded p-2 px-2 py-2">
+                                <div class="card-body">
+                                    <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-9</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mx-auto card shadow p-3 mb-5 bg-white rounded p-2 px-2 py-2">
+                                <div class="card-body">
+                                    <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-10</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-8</button>
-        </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-9</button>
-        </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary" (click)="storeButtonText($event)" data-toggle="modal" data-target="#exampleModalCenter">class-10</button>
-        </div>
-    </div> -->
+    </div>
 </div>
 
+
+
+
+
+
 <div>
-
-
-
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
-        data-keyboard="false" data-backdrop="static">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                    <h2 class="modal-title" id="exampleModalLongTitle">Login</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -71,18 +95,18 @@
                 <div class="modal-body">
                     <div class="row p-3">
                         <div class="col">
-                            <input type="text" #number (focusout)= "focusoutHandler(number)" [(ngModel)]="numbertext"class="field" placeholder="Mobile Number">
+                            <input type="text" #number (focusout)="focusoutHandler(number)" [(ngModel)]="numbertext" class="field" placeholder="Mobile Number">
                         </div>
                     </div>
                     <div class="row p-3">
                         <div class="col">
-                            <button class="btn btn-primary btn-sm btn-block p-2"  data-dismiss="modal" (click)="rotate()">submit</button>
+                            <button class="btn btn-primary btn-sm btn-block p-2" data-dismiss="modal" (click)="rotate()">submit</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button> -->
-                    <button type="button" class="btn btn-primary" >Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Close</button> -->
                     <div>{{message}}</div>
                 </div>
             </div>
