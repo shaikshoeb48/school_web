@@ -15,7 +15,7 @@
 } */
 
 .bg-1 {
-    background: url('https://images.pexels.com/photos/3815765/pexels-photo-3815765.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background: url('https://images.pexels.com/photos/1420709/pexels-photo-1420709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -24,11 +24,23 @@
     font-weight: bold;
     font-family: louis_george_caferegular;
     word-spacing: 4px;
-    color: rgb(122, 209, 141);
+    color: black;
 }
 
 .about-bg {
     background: url('https://images.pexels.com/photos/3787308/pexels-photo-3787308.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousal-bg {
+    background: url('https://images.pexels.com/photos/2422914/pexels-photo-2422914.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact-bg-image {
+    background: url('https://images.pexels.com/photos/796602/pexels-photo-796602.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-repeat: no-repeat;
     background-size: cover;
 }

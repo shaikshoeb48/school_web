@@ -1,5 +1,11 @@
-.field{
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #100C74;
+.field {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #100C74;
+}
+
+.classes-bg {
+    background: url('https://images.pexels.com/photos/256395/pexels-photo-256395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

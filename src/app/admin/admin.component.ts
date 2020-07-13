@@ -10,8 +10,8 @@ import { asLiteral } from '@angular/compiler/src/render3/view/util';
 export class AdminComponent implements OnInit {
   teacherCode = '';
   adminCode = '';
-  codeTeacher = '444444';
-  codeAdmin = '444444';
+  codeTeacher = '1234';
+  codeAdmin = '1234';
 
   constructor(private router: Router) { }
 

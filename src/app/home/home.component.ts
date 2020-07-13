@@ -3,6 +3,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { NotificationService } from '../services/notification.service';
 import { AngularFireDatabase } from '@angular/fire/database';
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 @Component({
   selector: 'app-home',
@@ -18,7 +20,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    AOS.init();
     this.notificationService.getNotifications().subscribe((result) => {
       console.log(result);
       this.notifications = result;
