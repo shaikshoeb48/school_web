@@ -78,5 +78,13 @@ export const class7Chapters: SubjectChapter[] = [
 
         ]
 
+    },
+    {
+        className: 'class-7',
+        subject: 'EnglishGrammar',
+        chapters: [
+            { chapterTitle: 'English Grammar' },
+        ]
+
     }
 ];

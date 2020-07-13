@@ -19,6 +19,7 @@ export const class6Subjects: ClassSubject = {
         { subjectName: 'Maths', subjectValue: 'Maths' },
         { subjectName: 'General Science', subjectValue: 'GeneralScience' },
         { subjectName: 'Social', subjectValue: 'Social' },
+        { subjectName: 'English Grammar', subjectValue: 'EnglishGrammar' },
 
     ]
 };
@@ -32,6 +33,7 @@ export const class7Subjects: ClassSubject = {
         { subjectName: 'Maths', subjectValue: 'Maths' },
         { subjectName: 'General Science', subjectValue: 'GeneralScience' },
         { subjectName: 'Social', subjectValue: 'Social' },
+        { subjectName: 'English Grammar', subjectValue: 'EnglishGrammar' },
 
     ]
 };
@@ -44,6 +46,7 @@ export const class8Subjects: ClassSubject = {
         { subjectName: 'Physical Science', subjectValue: 'PhysicalScience' },
         { subjectName: 'Biological Science', subjectValue: 'BiologicalScience' },
         { subjectName: 'Social', subjectValue: 'Social' },
+        { subjectName: 'English Grammar', subjectValue: 'EnglishGrammar' },
 
     ]
 };
@@ -57,6 +60,7 @@ export const class9Subjects: ClassSubject = {
         { subjectName: 'Biological Science', subjectValue: 'BiologicalScience' },
         { subjectName: 'Social', subjectValue: 'Social' },
         { subjectName: 'Environmental Education', subjectValue: 'EnvironmentalEducation' },
+        { subjectName: 'English Grammar', subjectValue: 'EnglishGrammar' },
 
 
     ]
@@ -72,6 +76,7 @@ export const class10Subjects: ClassSubject = {
         { subjectName: 'Biological Science', subjectValue: 'BiologicalScience' },
         { subjectName: 'Social', subjectValue: 'Social' },
         { subjectName: 'Environmental Education', subjectValue: 'EnvironmentalEducation' },
+        { subjectName: 'English Grammar', subjectValue: 'EnglishGrammar' },
 
     ]
 };

@@ -140,5 +140,13 @@ export const class10Chapters: SubjectChapter[] = [
         ]
 
     },
+    {
+        className: 'class-10',
+        subject: 'EnglishGrammar',
+        chapters: [
+            { chapterTitle: 'English Grammar' },
+        ]
+
+    }
     
 ];
