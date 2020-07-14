@@ -103,6 +103,8 @@ export class StudentDashboardComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('mobileNumber');
+    localStorage.removeItem('className');
     this.router.navigate(['classes']);
   }
 }

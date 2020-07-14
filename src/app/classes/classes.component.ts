@@ -23,6 +23,11 @@ export class ClassesComponent implements OnInit {
   constructor(private router: Router, private classesService: ClassesService) { }
 
   ngOnInit(): void {
+    const user = localStorage.getItem('currentUser');
+    if ((user != '') && (user != null)) {
+      this.router.navigate(['student-dashboard', { mobileNumber: localStorage.getItem('mobileNumber'), className: localStorage.getItem('className') }]);
+    }
+
   }
 
   focusoutHandler(refVar) {
@@ -47,6 +52,8 @@ export class ClassesComponent implements OnInit {
         // console.log(this.mobileNumber, this.className);
         
         localStorage.setItem('currentUser',this.mobileNumber);
+        localStorage.setItem('mobileNumber',this.mobileNumber);
+        localStorage.setItem('className',this.className);
         this.router.navigate(['student-dashboard', { mobileNumber: this.mobileNumber, className: this.className }]);
       }
     });
