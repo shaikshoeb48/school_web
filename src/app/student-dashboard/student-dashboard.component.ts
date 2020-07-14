@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StudentDashboardService } from '../services/student-dashboard.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { class6Subjects, class7Subjects, class8Subjects, class9Subjects, class10Subjects } from '../subject';
@@ -24,10 +24,16 @@ export class StudentDashboardComponent implements OnInit {
   // constructor(private activatedRoute: ActivatedRoute, private studentDashboardService: StudentDashboardService,
   // private storage: AngularFireStorage) { }
   constructor(private activatedRoute: ActivatedRoute, private studentDashboardService: StudentDashboardService,
-    @Inject('firebaseStorageProject1') private storage: AngularFireStorage) { }
+    @Inject('firebaseStorageProject1') private storage: AngularFireStorage, private router: Router) { }
 
   ngOnInit(): void {
+    const user = localStorage.getItem('currentUser');
+    if (user == '' || user == null) {
+      alert('Please login');
+      this.router.navigate(['classes']);
 
+    }
+    console.log(user);
     this.mobileNumber = this.activatedRoute.snapshot.paramMap.get('mobileNumber');
     this.className = this.activatedRoute.snapshot.paramMap.get('className');
     if (this.className == 'class-6') {
@@ -88,10 +94,15 @@ export class StudentDashboardComponent implements OnInit {
   }
 
   setResourceName(link) {
-    
+
     link = link.split('/watch?v=');
     link = link[0] + '/embed/' + link[1];
     this.link = link;
     this.showLink = true;
+  }
+
+  logout(){
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['classes']);
   }
 }

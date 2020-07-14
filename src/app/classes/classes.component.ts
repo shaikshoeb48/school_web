@@ -40,11 +40,13 @@ export class ClassesComponent implements OnInit {
       } else {
         this.message = 'Success';
         this.numbertext = '';
-        alert('Success');
+       // alert('Success');
         // this.router.navigate(['afterLogin']);
         // this.router.navigate(['student-dashboard',this.mobileNumber,this.className]);
         // this.router.navigate(['game', { mobileNumber: this.mobileNumber, className: this.className }]);
-        console.log(this.mobileNumber, this.className);
+        // console.log(this.mobileNumber, this.className);
+        
+        localStorage.setItem('currentUser',this.mobileNumber);
         this.router.navigate(['student-dashboard', { mobileNumber: this.mobileNumber, className: this.className }]);
       }
     });
